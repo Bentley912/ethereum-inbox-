@@ -14,12 +14,12 @@ beforeEach(async () => {
 
     inbox  = await  new web3.eth.Contract(JSON.parse(interface))
     .deploy({ data: bytecode, arguments: ['Hi There']})//? Deploys using bytecode from Compile file -- Arguments is the Inital Message which is necessary to deploy new contract
-    .send({ from: accounts[0], gas: ' 1000000' }) //? Sends form open account from Ganache and sets a gas limit 
+    .send({ from: accounts[0], gas: '1000000' }) //? Sends from open account from Ganache and sets a gas limit 
 });
 
 describe('inbox contracts', () => {
     it('deploys contract', () => {
-        console.log(inbox);
+        assert.ok(inbox.options.address);//? Assert ok simply checks the presence of the value 
     });
 
 });
